@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suraj Vishwakarma – Web Developer, Goa</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f1f3d;--navy-mid:#1a3260;--gold:#d4a847;--gold-light:#f0c96a;--cream:#faf8f3;--cream-dark:#f0ece0;--text:#1a1a2e;--text-muted:#5a5a78;--white:#ffffff;--green:#1a5a3a;--green-light:#e8f5ee;--border:#e0d9c8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 5%;background:rgba(15,31,61,0.97);backdrop-filter:blur(12px);}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:20px;color:var(--gold);}
+.nav-logo span{display:block;font-size:10px;font-family:'DM Sans',sans-serif;font-weight:300;color:rgba(255,255,255,0.5);letter-spacing:0.15em;text-transform:uppercase;margin-top:1px;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--navy);padding:9px 20px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,71,0.1) 0%,transparent 70%);}
+.hero-inner{max-width:640px;position:relative;z-index:1;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,71,0.12);border:1px solid rgba(212,168,71,0.25);color:var(--gold);font-size:11px;font-weight:500;padding:6px 14px;border-radius:2px;margin-bottom:28px;letter-spacing:0.1em;text-transform:uppercase;}
+.hero-tag::before{content:'●';font-size:8px;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(44px,6vw,72px);color:var(--white);line-height:1.05;margin-bottom:22px;}
+.hero h1 em{color:var(--gold);font-style:italic;display:block;}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:40px;max-width:500px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px;}
+.btn-gold{background:var(--gold);color:var(--navy);padding:14px 28px;border-radius:4px;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.2);padding:14px 28px;border-radius:4px;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{display:flex;gap:36px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.1);}
+.stat-num{font-family:'DM Serif Display',serif;font-size:34px;color:var(--gold);}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.4);margin-top:3px;}
+
+/* WHAT I OFFER */
+#services{padding:90px 5%;background:var(--white);}
+.sec-tag{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.sec-title{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,46px);color:var(--navy);line-height:1.1;margin-bottom:48px;}
+.sec-title em{font-style:italic;color:var(--gold);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.svc-card{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:28px;transition:all 0.25s;position:relative;overflow:hidden;}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(15,31,61,0.08);}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-icon{font-size:32px;margin-bottom:16px;display:block;}
+.svc-card h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.svc-card p{font-size:13px;color:var(--text-muted);line-height:1.7;}
+
+/* PORTFOLIO */
+#portfolio{padding:90px 5%;background:var(--cream);}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+.port-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all 0.25s;}
+.port-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,31,61,0.1);}
+.port-preview{height:180px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;}
+.port-dental{background:linear-gradient(135deg,#0f2f5a,#1a4f8a);}
+.port-salon{background:linear-gradient(135deg,#3d1a1a,#c9736a);}
+.port-resto{background:linear-gradient(135deg,#1a3a2a,#2a5a3a);}
+.port-cafe{background:linear-gradient(135deg,#3d1f0d,#6b3a1f);}
+.port-coaching{background:linear-gradient(135deg,#0f1f3d,#1a3260);}
+.port-tag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);font-size:11px;font-weight:500;padding:4px 10px;border-radius:12px;letter-spacing:0.06em;text-transform:uppercase;}
+.port-body{padding:20px 22px;}
+.port-body h3{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.port-body p{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;}
+.port-features{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.pf-tag{font-size:11px;background:var(--cream);color:var(--text-muted);padding:3px 8px;border-radius:12px;border:1px solid var(--border);}
+.port-link{font-size:13px;color:var(--navy);font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+.port-link:hover{color:var(--gold);}
+
+/* WHY ME */
+#why{padding:90px 5%;background:var(--navy);}
+#why .sec-tag{color:var(--gold);}
+#why .sec-title{color:var(--white);}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.why-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:24px;}
+.why-icon{font-size:28px;margin-bottom:14px;display:block;}
+.why-card h3{font-size:15px;font-weight:500;color:var(--white);margin-bottom:8px;}
+.why-card p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;}
+
+/* CONTACT */
+#contact{padding:90px 5%;background:var(--cream);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.contact-info .sec-title{margin-bottom:20px;}
+.contact-desc{font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:36px;}
+.contact-items{display:flex;flex-direction:column;gap:18px;}
+.ci-row{display:flex;gap:14px;align-items:flex-start;}
+.ci-icon{width:40px;height:40px;border-radius:8px;background:rgba(212,168,71,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.ci-row h4{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px;}
+.ci-row p{font-size:14px;color:var(--text);}
+.ci-row a{color:var(--gold);text-decoration:none;}
+.contact-form{background:var(--navy);border-radius:12px;padding:40px;}
+.contact-form h3{font-family:'DM Serif Display',serif;font-size:26px;color:var(--white);margin-bottom:6px;}
+.contact-form>p{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:28px;}
+.fg{margin-bottom:16px;}
+.fg label{display:block;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:7px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--white);outline:none;transition:border-color 0.2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.2);}
+.fg select option{background:#0f1f3d;}
+.fg textarea{height:90px;resize:none;}
+.form-btn{width:100%;background:var(--gold);color:var(--navy);padding:14px;border:none;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.form-btn:hover{background:var(--gold-light);}
+.form-note{font-size:12px;color:rgba(255,255,255,0.3);text-align:center;margin-top:10px;}
+
+/* WHATSAPP */
+.wa-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s;}
+.wa-btn:hover{transform:scale(1.1);}
+
+footer{background:var(--navy);padding:24px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer p{font-size:12px;color:rgba(255,255,255,0.3);}
+footer strong{color:var(--gold);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero-inner>*{animation:fadeUp 0.6s ease both;}
+.hero-tag{animation-delay:0.05s;}.hero h1{animation-delay:0.15s;}.hero-sub{animation-delay:0.25s;}.hero-actions{animation-delay:0.35s;}.hero-stats{animation-delay:0.45s;}
+
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .contact-grid{grid-template-columns:1fr;}
+  .hero-stats{flex-wrap:wrap;gap:20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Suraj V.<span>Web Developer · Goa</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#why">Why Me</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919370766547" class="nav-cta">Get a Free Demo</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Available for new projects · Goa</div>
+    <h1>Websites That<br><em>Get You Clients.</em></h1>
+    <p class="hero-sub">I build professional websites for local Goa businesses — clinics, salons, restaurants, cafes. With built-in lead capture so you never miss an enquiry. Ready in 24 hours.</p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-gold">📁 See My Work</a>
+      <a href="#contact" class="btn-outline">💬 Get Free Demo</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">10+</div><div class="stat-label">Websites Built</div></div>
+      <div><div class="stat-num">24hr</div><div class="stat-label">Delivery Time</div></div>
+      <div><div class="stat-num">₹0</div><div class="stat-label">Free Demo First</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="sec-tag">What I Build</div>
+  <h2 class="sec-title">Complete <em>Web Solutions</em></h2>
+  <div class="services-grid">
+    <div class="svc-card"><span class="svc-icon">🏥</span><h3>Clinic & Doctor Websites</h3><p>Professional websites for dental, homeopathy, and general clinics. Online appointment booking included.</p></div>
+    <div class="svc-card"><span class="svc-icon">💄</span><h3>Salon & Beauty Studios</h3><p>Elegant websites for salons, parlours and spas. Service menu, gallery, and booking form built-in.</p></div>
+    <div class="svc-card"><span class="svc-icon">🍽️</span><h3>Restaurants & Cafes</h3><p>Mouth-watering websites with full menu display, table reservation, and takeaway WhatsApp button.</p></div>
+    <div class="svc-card"><span class="svc-icon">⚡</span><h3>Lead Capture System</h3><p>Every enquiry from your website is automatically sent to your email and logged in a spreadsheet. Zero missed leads.</p></div>
+    <div class="svc-card"><span class="svc-icon">📱</span><h3>Mobile First Design</h3><p>All websites are 100% mobile responsive. Looks perfect on every phone — because most customers browse on mobile.</p></div>
+    <div class="svc-card"><span class="svc-icon">🚀</span><h3>24-Hour Delivery</h3><p>Pay 50% advance — your custom website goes live within 24 hours. No long waiting, no delays.</p></div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="sec-tag">Recent Work</div>
+  <h2 class="sec-title">Projects I've <em>Built</em></h2>
+  <div class="portfolio-grid">
+    <div class="port-card">
+      <div class="port-preview port-dental"><span class="port-tag">Dental</span>🦷</div>
+      <div class="port-body">
+        <h3>Dental Clinic — Goa</h3>
+        <p>Full clinic website with appointment booking, doctor profile, services, and patient reviews section.</p>
+        <div class="port-features"><span class="pf-tag">Appointment Form</span><span class="pf-tag">Lead Capture</span><span class="pf-tag">Mobile Ready</span></div>
+        <a href="#contact" class="port-link">Request similar →</a>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-preview port-salon"><span class="port-tag">Salon</span>💄</div>
+      <div class="port-body">
+        <h3>Beauty Studio — Goa</h3>
+        <p>Premium salon website with full services menu, bridal packages, and instant booking form.</p>
+        <div class="port-features"><span class="pf-tag">Services Menu</span><span class="pf-tag">WhatsApp CTA</span><span class="pf-tag">Lead Capture</span></div>
+        <a href="#contact" class="port-link">Request similar →</a>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-preview port-resto"><span class="port-tag">Restaurant</span>🍽️</div>
+      <div class="port-body">
+        <h3>Goan Restaurant — Panaji</h3>
+        <p>Full menu website with table reservation system, chef specials, and Google reviews integration.</p>
+        <div class="port-features"><span class="pf-tag">Table Booking</span><span class="pf-tag">Full Menu</span><span class="pf-tag">Reviews</span></div>
+        <a href="#contact" class="port-link">Request similar →</a>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-preview port-cafe"><span class="port-tag">Cafe</span>☕</div>
+      <div class="port-body">
+        <h3>Specialty Cafe — Goa</h3>
+        <p>Modern cafe website with drinks menu, vibe section, takeaway WhatsApp order button and contact form.</p>
+        <div class="port-features"><span class="pf-tag">Drinks Menu</span><span class="pf-tag">Takeaway CTA</span><span class="pf-tag">WiFi Info</span></div>
+        <a href="#contact" class="port-link">Request similar →</a>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-preview port-coaching"><span class="port-tag">Coaching</span>📚</div>
+      <div class="port-body">
+        <h3>Coaching Institute — Goa</h3>
+        <p>Professional coaching website with course listings, demo class booking, faculty section and testimonials.</p>
+        <div class="port-features"><span class="pf-tag">Course Listing</span><span class="pf-tag">Demo Booking</span><span class="pf-tag">Lead Capture</span></div>
+        <a href="#contact" class="port-link">Request similar →</a>
+      </div>
+    </div>
+    <div class="port-card" style="background:var(--navy);border-color:rgba(212,168,71,0.2);display:flex;align-items:center;justify-content:center;min-height:280px;">
+      <div style="text-align:center;padding:32px;">
+        <div style="font-size:36px;margin-bottom:12px;">✨</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:18px;color:var(--white);margin-bottom:8px;">Your Business Here</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:20px;line-height:1.6;">Get a free demo built specifically for your business — no commitment needed.</div>
+        <a href="#contact" class="btn-gold" style="font-size:13px;padding:10px 22px;">Get Free Demo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="sec-tag">Why Choose Me</div>
+  <h2 class="sec-title">What Makes Me <em>Different</em></h2>
+  <div class="why-grid">
+    <div class="why-card"><span class="why-icon">📍</span><h3>Local to Goa</h3><p>Based in Chimbel, Goa. I understand local businesses and can meet in person if needed.</p></div>
+    <div class="why-card"><span class="why-icon">⚡</span><h3>Free Demo First</h3><p>I build your demo before you pay anything. See the website first — then decide. Zero risk.</p></div>
+    <div class="why-card"><span class="why-icon">🔔</span><h3>Lead System Included</h3><p>Every enquiry from your website is automatically sent to your email. No more missed customers.</p></div>
+    <div class="why-card"><span class="why-icon">🕐</span><h3>24-Hour Delivery</h3><p>Pay advance at 10 AM — your website is live by next morning. Fastest turnaround in Goa.</p></div>
+    <div class="why-card"><span class="why-icon">📱</span><h3>Mobile Perfect</h3><p>70% of customers browse on mobile. Every site I build looks flawless on all screen sizes.</p></div>
+    <div class="why-card"><span class="why-icon">💰</span><h3>Affordable for Local Business</h3><p>₹8,000 one-time. ₹800/month maintenance. Lowest price for this quality anywhere in Goa.</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="sec-tag">Work With Me</div>
+      <h2 class="sec-title">Get Your <em>Free Demo</em></h2>
+      <p class="contact-desc">Tell me about your business — I'll build a free demo website for you within 24 hours. No payment needed to see the demo.</p>
+      <div class="contact-items">
+        <div class="ci-row"><div class="ci-icon">📍</div><div><h4>Location</h4><p>Chimbel, Goa — serving all of Goa</p></div></div>
+        <div class="ci-row"><div class="ci-icon">💬</div><div><h4>WhatsApp</h4><p><a href="https://wa.me/919370766547">Chat directly on WhatsApp →</a></p></div></div>
+        <div class="ci-row"><div class="ci-icon">⏰</div><div><h4>Response Time</h4><p>Within 2 hours during 9 AM – 8 PM</p></div></div>
+        <div class="ci-row"><div class="ci-icon">💰</div><div><h4>Pricing</h4><p>From ₹8,000 one-time · ₹800/month</p></div></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>Request Free Demo</h3>
+      <p>I'll build it within 24 hours — free</p>
+      <div class="fg"><label>Your Name</label><input type="text" placeholder="Full name" id="f-name"></div>
+      <div class="fg"><label>WhatsApp Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="f-phone"></div>
+      <div class="fg"><label>Business Type</label>
+        <select id="f-type">
+          <option value="">Select your business</option>
+          <option>Dental / Medical Clinic</option>
+          <option>Salon / Beauty Studio</option>
+          <option>Restaurant</option>
+          <option>Cafe</option>
+          <option>Coaching / Tuition Classes</option>
+          <option>Gym / Fitness</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label>Business Name & Area</label><textarea placeholder="e.g. Bright Smiles Dental, Mapusa Goa" id="f-msg"></textarea></div>
+      <button class="form-btn" onclick="submitForm()">Request My Free Demo →</button>
+      <p class="form-note">No payment needed · Demo ready in 24 hours · No commitment</p>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/919370766547?text=Hi%20Suraj%2C%20I%20want%20a%20free%20demo%20website%20for%20my%20business" class="wa-btn" target="_blank">💬</a>
+
+<footer>
+  <p>© 2025 <strong>Suraj Vishwakarma</strong> · Web Developer, Goa</p>
+  <p>Built with ❤️ in Goa</p>
+</footer>
+
+<script>
+function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const type=document.getElementById('f-type').value;
+  const msg=document.getElementById('f-msg').value;
+  if(!name||!phone||!type){alert('Please fill all required fields.');return;}
+  const m=encodeURIComponent('New Demo Request!\nName: '+name+'\nPhone: '+phone+'\nBusiness Type: '+type+'\nDetails: '+msg);
+  window.open('https://wa.me/919370766547?text='+m,'_blank');
+  alert('Request sent! I will build your free demo within 24 hours.');
+}
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.padding=window.scrollY>40?'13px 5%':'18px 5%';
+});
+</script>
+</body>
+</html>
